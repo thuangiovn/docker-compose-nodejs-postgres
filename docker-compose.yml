@@ -23,10 +23,10 @@ services:
       - 6868:8080
     environment:
       - DB_HOST=postgresdb
-      - DB_USER=$POSTGRESDB_USER
-      - DB_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
-      - DB_NAME=$POSTGRESDB_DATABASE
-      - DB_PORT=$POSTGRESDB_DOCKER_PORT
+      - DB_USER=postgres
+      - DB_PASSWORD=sa123
+      - DB_NAME=bezkoder_db
+      - DB_PORT=5432
     stdin_open: true
     tty: true
 
