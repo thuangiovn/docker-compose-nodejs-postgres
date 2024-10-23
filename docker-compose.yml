@@ -6,11 +6,11 @@ services:
     restart: unless-stopped
     env_file: ./.env
     environment:
-      - POSTGRES_USER=$POSTGRESDB_USER
-      - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
-      - POSTGRES_DB=$POSTGRESDB_DATABASE
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sa123
+      - POSTGRES_DB=bezkoder_db
     ports:
-      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
+      - 5433:5432
     volumes:
       - db:/var/lib/postgres
   app:
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     env_file: ./.env
     ports:
-      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - 6868:8080
     environment:
       - DB_HOST=postgresdb
       - DB_USER=$POSTGRESDB_USER
